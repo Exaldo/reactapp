@@ -1,0 +1,6 @@
+module.exports ={
+    UPDATE_NAME : 'UPDATE_NAME',
+    UPDATE_LAST_NAME: 'UPDATE_LAST_NAME',
+    UPDATE_AGE: 'UPDATE_AGE',
+    CLEAR_FORM: 'CLEAR_FORM'
+}

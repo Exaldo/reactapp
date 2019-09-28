@@ -1,0 +1,23 @@
+.user_info {
+    display: flex; 
+    flex-direction: row;
+    height: 100%;
+    background: black;
+    color: white;
+
+}
+
+.user_name {
+    background:  red;
+    height: 100vh;
+}
+
+.user_hobbies {
+    background:  red;
+    height: 100vh;
+}
+
+.user_about {
+    background:  red;
+    height: 100vh;
+}
