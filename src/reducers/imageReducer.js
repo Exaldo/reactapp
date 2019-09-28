@@ -1,15 +1,44 @@
-import { SAVE_IMAGES } from '../constants/imageReducer'
+import Axios from 'axios';
 
+//ACTION TYPE /CONSTANT 
+const ACTION = {
+    SET_IMAGES: 'fs-js-04-2019/gallery/SET_IMAGES'
+}
+
+//DEFAULT STATE
 const initialState = {
-    images: []
+    images:[]
 };
 
-const imageReducer = (state = initialState, action ) => {
+
+export default (state = initialState, action ) => {
     switch (action.type) {
-        case SAVE_IMAGES:
+        case ACTION.SET_IMAGES:
             return { ...state, images:action.images}
             default:
                 return state;    
 }};
 
-export default imageReducer;
+//ACTIONS
+export const setImages = (images) => {
+    return {
+        type: ACTION.SET_IMAGES,
+        images
+        
+    }
+}
+
+//ASYNC ACTION FUNCTION
+export const getImages = () => {
+
+    return async (dispatch) => {
+        const images = await Axios.get('https://picsum.photos/v2/list?limit=6', {
+        params: {
+            limit:6
+     }
+    });
+    
+    console.log('AXIOS IMAGES =>', images);
+    dispatch(setImages(images.data));
+    
+    }};

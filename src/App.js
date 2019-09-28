@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import React,{useState} from 'react';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import allReducers from './reducers'
-
+import thunk  from 'redux-thunk'
 // import logo from './logo.svg';
 // import Person from './Person';
 import UsersFunctional from './ui/Users/UsersFunctional';
@@ -16,8 +16,12 @@ import Notfound from './components/Notfound/Notfound'
 import Gallery from './components/Gallery/Gallery'
 import GalleryDetail from './components/Gallery/GalleryDetail'
 
+// const logger = store => next => action => {
+//   console.log('MY ACTION IS =>', action);
+  
+// }
 
-const mainStore = createStore(allReducers);
+const mainStore = createStore(allReducers, applyMiddleware(thunk));
 
 const App=()=>{
   

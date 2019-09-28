@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import React, {useState, useEffect, Fragment} from 'react';
 // import './About.css';
 import { connect, useDispatch } from 'react-redux'
-import { setImages } from '../../actions/imageReducer';
+import { getImages } from '../../reducers/imageReducer';
+import gallery from './gallery.css'
 
 const Gallery = (props) => {
     const dispatch = useDispatch();
@@ -10,10 +11,8 @@ const Gallery = (props) => {
     
 
     useEffect (()=>{
-        fetch('https://picsum.photos/v2/list?limit=6')
-        .then(response => response.json())
-        .then(jsonThing => dispatch(setImages(jsonThing)))
-    },images);
+        dispatch (getImages())
+    },[]);
 
 
     // const fetchUsers=()=>{
@@ -24,7 +23,7 @@ const Gallery = (props) => {
 
     return (
 
-        <div>
+        <div className='gallery'>
             {
                 images.map((image,i) => {
                    return ( 

@@ -10,7 +10,7 @@ const Nav = () => {
             <h4>Logo</h4>
             <ul className="nav-links">
             
-            <Link className="link_style">
+            <Link to="/gallery" className="link_style">
             <li>Gallery</li>
             </Link>
 
@@ -18,7 +18,7 @@ const Nav = () => {
             <li>About</li>
             </Link>
 
-            <Link className="link_style">
+            <Link to="/users" className="link_style">
             <li>Users</li>
             </Link>
             
